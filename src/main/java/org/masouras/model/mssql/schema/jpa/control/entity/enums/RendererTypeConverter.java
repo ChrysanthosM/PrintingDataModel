@@ -4,7 +4,7 @@ import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
 @Converter(autoApply = true)
-public class RenderTypeConverter implements AttributeConverter<RendererType, String> {
+public class RendererTypeConverter implements AttributeConverter<RendererType, String> {
 
     @Override
     public String convertToDatabaseColumn(RendererType attribute) {

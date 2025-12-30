@@ -51,9 +51,9 @@ public class DbFieldValues {
     }
 
     @Getter @AllArgsConstructor
-    public enum ValuesForRenderType implements ValueForBase {
+    public enum ValuesForRendererType implements ValueForBase {
         FOP("001"), OPEN_HTML_TO_PDF("002"), FLYING_SAUCER("003"), OPEN_PDF("004");
-        private final DbField forDbField = DbField.RENDER_TYPE;
+        private final DbField forDbField = DbField.RENDERER_TYPE;
         private final String value;
     }
 

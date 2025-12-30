@@ -13,10 +13,10 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Getter
 public enum RendererType {
-    FOP(DbFieldValues.ValuesForRenderType.FOP.getValue()),
-    OPEN_HTML_TO_PDF(DbFieldValues.ValuesForRenderType.OPEN_HTML_TO_PDF.getValue()),
-    FLYING_SAUCER(DbFieldValues.ValuesForRenderType.FLYING_SAUCER.getValue()),
-    OPEN_PDF(DbFieldValues.ValuesForRenderType.OPEN_PDF.getValue()),
+    FOP(DbFieldValues.ValuesForRendererType.FOP.getValue()),
+    OPEN_HTML_TO_PDF(DbFieldValues.ValuesForRendererType.OPEN_HTML_TO_PDF.getValue()),
+    FLYING_SAUCER(DbFieldValues.ValuesForRendererType.FLYING_SAUCER.getValue()),
+    OPEN_PDF(DbFieldValues.ValuesForRendererType.OPEN_PDF.getValue()),
     ;
     private final String code;
 

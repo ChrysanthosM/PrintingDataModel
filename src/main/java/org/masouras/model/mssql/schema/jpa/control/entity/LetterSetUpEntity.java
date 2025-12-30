@@ -23,9 +23,9 @@ public class LetterSetUpEntity {
     private XslType xslType;
 
     @NotNull
-    @Convert(converter = RenderTypeConverter.class)
-    @Column(name = "RENDER_TYPE", nullable = false, length = 3)
-    private RendererType renderType;
+    @Convert(converter = RendererTypeConverter.class)
+    @Column(name = "RENDERER_TYPE", nullable = false, length = 3)
+    private RendererType rendererType;
 
     @NotNull
     @Convert(converter = ValidFlagConverter.class)
