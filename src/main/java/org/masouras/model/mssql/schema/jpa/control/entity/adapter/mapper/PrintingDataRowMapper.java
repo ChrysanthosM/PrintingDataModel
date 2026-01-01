@@ -6,6 +6,7 @@ import org.masouras.model.mssql.schema.jpa.control.entity.PrintingFilesEntity;
 import org.masouras.model.mssql.schema.jpa.control.entity.enums.ContentType;
 import org.masouras.model.mssql.schema.jpa.control.entity.enums.FileExtensionType;
 import org.masouras.model.mssql.schema.jpa.control.entity.enums.PrintingStatus;
+import org.masouras.model.mssql.schema.jpa.control.util.EnumUtil;
 import org.masouras.model.mssql.schema.qb.structure.DbField;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -20,7 +21,7 @@ public class PrintingDataRowMapper implements RowMapper<PrintingDataEntity> {
         PrintingDataEntity entity = new PrintingDataEntity();
 
         entity.setId(rs.getLong(DbField.REC_ID.systemName()));
-        entity.setPrintingStatus(Objects.requireNonNull(PrintingStatus.getFromCode(rs.getString(DbField.PRINTING_STATUS.systemName()))));
+        entity.setPrintingStatus(Objects.requireNonNull(EnumUtil.fromCode(PrintingStatus.class, rs.getString(DbField.PRINTING_STATUS.systemName()))));
         entity.setModifiedAt(rs.getTimestamp(DbField.MODIFIED_AT.systemName()).toLocalDateTime());
 
         ActivityEntity activity = new ActivityEntity();
@@ -28,8 +29,8 @@ public class PrintingDataRowMapper implements RowMapper<PrintingDataEntity> {
         entity.setActivity(activity);
 
         entity.setErrorMessage(rs.getString(DbField.ERROR_MESSAGE.systemName()));
-        entity.setContentType(Objects.requireNonNull(ContentType.getFromCode(rs.getString(DbField.CONTENT_TYPE.systemName()))));
-        entity.setFileExtensionType(Objects.requireNonNull(FileExtensionType.getFromCode(rs.getString(DbField.EXTENSION_TYPE.systemName()))));
+        entity.setContentType(Objects.requireNonNull(EnumUtil.fromCode(ContentType.class, rs.getString(DbField.CONTENT_TYPE.systemName()))));
+        entity.setFileExtensionType(Objects.requireNonNull(EnumUtil.fromCode(FileExtensionType.class, rs.getString(DbField.EXTENSION_TYPE.systemName()))));
 
         PrintingFilesEntity initialPrintingFilesEntity = new PrintingFilesEntity();
         initialPrintingFilesEntity.setId(rs.getLong(DbField.INITIAL_CONTENT_ID.systemName()));

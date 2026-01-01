@@ -1,24 +1,13 @@
 package org.masouras.model.mssql.schema.jpa.control.entity.enums;
 
-import jakarta.annotation.Nullable;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
-
-import java.util.Arrays;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Getter
-public enum FileExtensionType {
-    XML("xml"),
+public enum FileExtensionType implements EnumTypeBase<FileExtensionType> {
+    XML("001"),
     ;
 
     private final String code;
-
-    private static final Map<String, FileExtensionType> EXTENSION_MAP = Arrays.stream(values()).collect(Collectors.toMap(FileExtensionType::getCode, e -> e));
-    public static FileExtensionType getFromCode(@Nullable String extension) {
-        return StringUtils.isBlank(extension) ? null : EXTENSION_MAP.getOrDefault(extension.toLowerCase(), null);
-    }
 }

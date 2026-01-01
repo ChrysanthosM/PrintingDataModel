@@ -1,18 +1,11 @@
 package org.masouras.model.mssql.schema.jpa.control.entity.enums;
 
-import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
+import org.masouras.model.mssql.schema.jpa.control.util.GenericEnumConverter;
 
 @Converter(autoApply = true)
-public class XslTypeConverter implements AttributeConverter<XslType, String> {
-
-    @Override
-    public String convertToDatabaseColumn(XslType attribute) {
-        return attribute != null ? attribute.getCode() : null;
-    }
-
-    @Override
-    public XslType convertToEntityAttribute(String dbData) {
-        return XslType.getFromCode(dbData);
+public class XslTypeConverter extends GenericEnumConverter<XslType> {
+    public XslTypeConverter() {
+        super(XslType.class);
     }
 }

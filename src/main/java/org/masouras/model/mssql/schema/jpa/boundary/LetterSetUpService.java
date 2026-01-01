@@ -5,7 +5,6 @@ import org.masouras.model.mssql.schema.jpa.control.entity.LetterSetUpEntity;
 import org.masouras.model.mssql.schema.jpa.control.entity.LetterSetUpKey;
 import org.masouras.model.mssql.schema.jpa.control.repository.LetterSetUpRepository;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

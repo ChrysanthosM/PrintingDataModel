@@ -1,18 +1,11 @@
 package org.masouras.model.mssql.schema.jpa.control.entity.enums;
 
-import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
+import org.masouras.model.mssql.schema.jpa.control.util.GenericEnumConverter;
 
 @Converter(autoApply = true)
-public class FileExtensionTypeConverter implements AttributeConverter<FileExtensionType, String> {
-
-    @Override
-    public String convertToDatabaseColumn(FileExtensionType attribute) {
-        return attribute != null ? attribute.getCode() : null;
-    }
-
-    @Override
-    public FileExtensionType convertToEntityAttribute(String dbData) {
-        return FileExtensionType.getFromCode(dbData);
+public class FileExtensionTypeConverter extends GenericEnumConverter<FileExtensionType> {
+    public FileExtensionTypeConverter() {
+        super(FileExtensionType.class);
     }
 }

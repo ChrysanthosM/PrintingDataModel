@@ -38,7 +38,7 @@ public class DbFieldValues {
 
     @Getter @AllArgsConstructor
     public enum ValuesForXslType implements ValueForBase {
-        POLICY("POLICY_XSL");
+        POLICY_XSL("10001");
         private final DbField forDbField = DbField.XSL_TYPE;
         private final String value;
     }

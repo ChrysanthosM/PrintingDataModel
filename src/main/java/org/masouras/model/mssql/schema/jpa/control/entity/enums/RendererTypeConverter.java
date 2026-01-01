@@ -1,18 +1,11 @@
 package org.masouras.model.mssql.schema.jpa.control.entity.enums;
 
-import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
+import org.masouras.model.mssql.schema.jpa.control.util.GenericEnumConverter;
 
 @Converter(autoApply = true)
-public class RendererTypeConverter implements AttributeConverter<RendererType, String> {
-
-    @Override
-    public String convertToDatabaseColumn(RendererType attribute) {
-        return attribute != null ? attribute.getCode() : null;
-    }
-
-    @Override
-    public RendererType convertToEntityAttribute(String dbData) {
-        return RendererType.getFromCode(dbData);
+public class RendererTypeConverter extends GenericEnumConverter<RendererType> {
+    public RendererTypeConverter() {
+        super(RendererType.class);
     }
 }
