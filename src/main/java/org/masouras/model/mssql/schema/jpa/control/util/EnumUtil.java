@@ -19,7 +19,6 @@ public class EnumUtil {
         Class<T> typed = (Class<T>) enumClass;
         CACHE_ENUM_CODES.computeIfAbsent(typed, cls ->
                 Arrays.stream(typed.getEnumConstants())
-                        .map(e -> (T) e)
                         .collect(Collectors.toMap(
                                 e -> e.getCode().trim(),
                                 e -> e
