@@ -1,14 +1,14 @@
-package org.masouras.model.mssql.schema.jpa.control.util;
+package org.masouras.model.mssql.schema.jpa.control.entity.enums.base;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
-import org.masouras.model.mssql.schema.jpa.control.entity.enums.EnumTypeBase;
+import org.masouras.model.mssql.schema.jpa.control.util.EnumUtil;
 
 @Converter
-public abstract class GenericEnumConverter<T extends Enum<T> & EnumTypeBase<T>> implements AttributeConverter<T, String> {
+public abstract class EnumGenericConverter<T extends Enum<T> & EnumTypeBase<T>> implements AttributeConverter<T, String> {
     private final Class<T> enumClass;
 
-    protected GenericEnumConverter(Class<T> enumClass) {
+    protected EnumGenericConverter(Class<T> enumClass) {
         this.enumClass = enumClass;
     }
 

@@ -3,7 +3,7 @@ package org.masouras.model.mssql.schema.jpa.control.util;
 import jakarta.annotation.Nullable;
 import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.StringUtils;
-import org.masouras.model.mssql.schema.jpa.control.entity.enums.EnumTypeBase;
+import org.masouras.model.mssql.schema.jpa.control.entity.enums.base.EnumTypeBase;
 
 import java.util.Arrays;
 import java.util.Map;

@@ -1,7 +1,8 @@
-package org.masouras.model.mssql.schema.jpa.control.util;
+package org.masouras.model.mssql.schema.jpa.control.entity.config;
 
 import jakarta.annotation.PostConstruct;
-import org.masouras.model.mssql.schema.jpa.control.entity.enums.EnumTypeBase;
+import org.masouras.model.mssql.schema.jpa.control.entity.enums.base.EnumTypeBase;
+import org.masouras.model.mssql.schema.jpa.control.util.EnumUtil;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +13,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 @Configuration
-public class EnumPreloadAutoConfiguration {
+public class EnumPreloadAutoConfig {
 
     @PostConstruct
     public void preloadEnums() {
