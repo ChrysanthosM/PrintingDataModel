@@ -8,7 +8,7 @@ import org.masouras.model.mssql.schema.qb.structure.DbFieldValues;
 @RequiredArgsConstructor
 @Getter
 public enum ActivityType implements EnumTypeBase<ActivityType> {
-    QUOTATION_NEW(DbFieldValues.ValuesForActivityType.QUOTATION_NEW.getValue()),
+    POLICY_NEW(DbFieldValues.ValuesForActivityType.POLICY_NEW.getValue()),
     ;
     private final String code;
 }

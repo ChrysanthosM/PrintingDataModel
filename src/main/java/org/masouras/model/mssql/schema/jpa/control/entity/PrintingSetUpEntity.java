@@ -22,5 +22,11 @@ public class PrintingSetUpEntity {
     @Convert(converter = LetterTypeConverter.class)
     @Column(name = "LETTER_TYPE", nullable = false, length = 5)
     private LetterType letterType;
+
+
+    public PrintingSetUpEntity(PrintingSetUpKey printingSetUpKey, LetterType letterType) {
+        this.id = printingSetUpKey;
+        this.letterType = letterType;
+    }
 }
 
