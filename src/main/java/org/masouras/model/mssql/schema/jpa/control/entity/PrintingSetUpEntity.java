@@ -21,7 +21,7 @@ public class PrintingSetUpEntity {
     private PrintingSetUpKey id;
 
     @NotNull
-    @FormField(component = ComboBox.class, label = "Letter Type", required = true)
+    @FormField(component = ComboBox.class, label = "Letter Type", required = true, order = 1)
     @Convert(converter = LetterTypeConverter.class)
     @Column(name = "LETTER_TYPE", nullable = false, length = 5)
     private LetterType letterType;

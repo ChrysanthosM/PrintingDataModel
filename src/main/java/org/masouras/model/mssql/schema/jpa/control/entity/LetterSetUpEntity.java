@@ -21,19 +21,19 @@ public class LetterSetUpEntity {
     private LetterSetUpKey id;
 
     @NotNull
-    @FormField(component = ComboBox.class, label = "XSL Type", required = true)
+    @FormField(component = ComboBox.class, label = "XSL Type", required = true, order = 1)
     @Convert(converter = XslTypeConverter.class)
     @Column(name = "XSL_TYPE", nullable = false, length = 50)
     private XslType xslType;
 
     @NotNull
-    @FormField(component = ComboBox.class, label = "Renderer Type", required = true)
+    @FormField(component = ComboBox.class, label = "Renderer Type", required = true, order = 2)
     @Convert(converter = RendererTypeConverter.class)
     @Column(name = "RENDERER_TYPE", nullable = false, length = 3)
     private RendererType rendererType;
 
     @NotNull
-    @FormField(component = ComboBox.class, label = "Valid Flag", required = true)
+    @FormField(component = ComboBox.class, label = "Valid Flag", required = true, order = 3)
     @Convert(converter = ValidFlagConverter.class)
     @Column(name = "VALID_FLAG", nullable = false, length = 1)
     private ValidFlag validFlag;

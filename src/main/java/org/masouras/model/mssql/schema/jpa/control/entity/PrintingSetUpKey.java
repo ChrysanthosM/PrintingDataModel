@@ -5,6 +5,8 @@ import com.vaadin.flow.component.textfield.IntegerField;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Embeddable;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,19 +25,20 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class PrintingSetUpKey implements Serializable {
     @NotNull
-    @FormField(component = ComboBox.class, label = "Activity Type", required = true, key = true)
+    @FormField(component = ComboBox.class, label = "Activity Type", required = true, key = true, order = 1)
     @Convert(converter = ActivityTypeConverter.class)
     @Column(name = "ACTIVITY_TYPE", nullable = false, length = 5)
     private ActivityType activityType;
 
     @NotNull
-    @FormField(component = ComboBox.class, label = "Content Type", required = true, key = true)
+    @FormField(component = ComboBox.class, label = "Content Type", required = true, key = true, order = 2)
     @Convert(converter = ContentTypeConverter.class)
     @Column(name = "CONTENT_TYPE", nullable = false, length = 5)
     private ContentType contentType;
 
     @NotNull
-    @FormField(component = IntegerField.class, label = "Sequence No", required = true, key = true)
-    @Column(name = "SEQ_NO")
+    @Min(1) @Max(999)
+    @FormField(component = IntegerField.class, label = "Sequence No", required = true, key = true, order = 3)
+    @Column(name = "SEQ_NO", nullable = false)
     private Integer seqNo;
 }
