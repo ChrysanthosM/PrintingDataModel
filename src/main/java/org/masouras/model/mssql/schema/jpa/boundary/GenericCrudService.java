@@ -1,5 +1,7 @@
 package org.masouras.model.mssql.schema.jpa.boundary;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,6 +25,11 @@ public abstract class GenericCrudService<T, ID> {
         return jpaRepository.findAll();
     }
 
+    @Transactional(readOnly = true)
+    public Page<T> list(Pageable pageable) {
+        return jpaRepository.findAll(pageable);
+    }
+
     @Transactional
     public T save(T entity) {
         return jpaRepository.save(entity);
@@ -32,4 +39,6 @@ public abstract class GenericCrudService<T, ID> {
     public void delete(T entity) {
         jpaRepository.delete(entity);
     }
+
+
 }

@@ -4,19 +4,23 @@ import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.HasLabel;
 import com.vaadin.flow.component.HasPlaceholder;
 import com.vaadin.flow.component.combobox.ComboBox;
+import lombok.experimental.UtilityClass;
 
 import java.lang.reflect.Field;
 
+@UtilityClass
 public class FieldFactory {
-    public static Component createField(Field field, FormField meta) {
+
+    @SuppressWarnings("unchecked")
+    public static Component createField(Field field, FormField formField) {
         try {
-            Component component = meta.component().getDeclaredConstructor().newInstance();
+            Component component = formField.component().getDeclaredConstructor().newInstance();
 
             if (component instanceof HasLabel label) {
-                label.setLabel(meta.label());
+                label.setLabel(formField.label());
             }
             if (component instanceof HasPlaceholder placeholder) {
-                placeholder.setPlaceholder(meta.label());
+                placeholder.setPlaceholder(formField.label());
             }
 
             if (component instanceof ComboBox<?> combo) {
