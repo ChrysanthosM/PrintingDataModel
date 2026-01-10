@@ -36,9 +36,7 @@ public abstract class GenericCrudService<T, ID> {
     }
 
     @Transactional
-    public void delete(T entity) {
-        jpaRepository.delete(entity);
+    public void deleteAll(List<T> entities) {
+        jpaRepository.deleteAll(entities);
     }
-
-
 }
