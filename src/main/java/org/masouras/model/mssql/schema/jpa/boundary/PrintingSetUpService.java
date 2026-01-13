@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class PrintingSetUpService extends GenericCrudService<PrintingSetUpEntity, PrintingSetUpKey> {
     public PrintingSetUpService(PrintingSetUpRepository repository) {
-        super(repository);
+        super(repository, repository);
     }
 }
