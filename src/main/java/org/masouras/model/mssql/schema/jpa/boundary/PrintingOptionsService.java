@@ -20,7 +20,7 @@ public class PrintingOptionsService extends GenericCrudService <PrintingOptionsE
 
     public PrintingOptionsService(PrintingOptionsRepository repository,
                                   PrintingOptionsSQL printingOptionsSQL) {
-        super(repository, repository);
+        super(PrintingOptionsEntity.class, repository, repository);
         this.printingOptionsSQL = printingOptionsSQL;
     }
 

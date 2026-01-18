@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class LetterSetUpService extends GenericCrudService<LetterSetUpEntity, LetterSetUpKey> {
     public LetterSetUpService(LetterSetUpRepository repository) {
-        super(repository, repository);
+        super(LetterSetUpEntity.class, repository, repository);
     }
 }

@@ -1,5 +1,6 @@
 package org.masouras.model.mssql.schema.jpa.boundary;
 
+import lombok.Getter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -10,14 +11,22 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class GenericCrudService<T, ID> {
+public abstract non-sealed class GenericCrudService<T, ID> implements GenericCrudServiceStrategy<T, ID> {
+    @Getter private final Class<T> entityClass;
     protected final JpaRepository<T, ID> jpaRepository;
     protected final JpaSpecificationExecutor<T> jpaSpecificationExecutor;
 
-    protected GenericCrudService(JpaRepository<T, ID> jpaRepository, JpaSpecificationExecutor<T> jpaSpecificationExecutor) {
+    protected GenericCrudService(Class<T> entityClass, JpaRepository<T, ID> jpaRepository, JpaSpecificationExecutor<T> jpaSpecificationExecutor) {
+        this.entityClass = entityClass;
         this.jpaRepository = jpaRepository;
         this.jpaSpecificationExecutor = jpaSpecificationExecutor;
     }
+
+    @Override
+    public GenericCrudService<T, ID> getGenericCrudService() {
+        return this;
+    }
+
 
     @Transactional(readOnly = true)
     public Optional<T> findById(ID key) {
