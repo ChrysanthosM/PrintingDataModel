@@ -9,8 +9,6 @@ import org.masouras.model.mssql.schema.qb.structure.DbFieldValues;
 @Getter
 public enum ValidFlag implements EnumTypeBase<ValidFlag> {
     ENABLED(DbFieldValues.ValuesForValidFlag.ENABLED.getValue()),
-    OPTIONAL(DbFieldValues.ValuesForValidFlag.OPTIONAL.getValue()),
-    STRICT(DbFieldValues.ValuesForValidFlag.STRICT.getValue()),
     DISABLED(DbFieldValues.ValuesForValidFlag.DISABLED.getValue()),
     ;
     private final String code;

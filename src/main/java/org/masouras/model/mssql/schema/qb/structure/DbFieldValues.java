@@ -59,7 +59,7 @@ public class DbFieldValues {
 
     @Getter @AllArgsConstructor
     public enum ValuesForValidFlag implements ValueForBase {
-        ENABLED("1"), OPTIONAL("2"), STRICT("3"), DISABLED("9");
+        DISABLED("0"), ENABLED("1");
         private final DbField forDbField = DbField.VALID_FLAG;
         private final String value;
     }
