@@ -53,15 +53,15 @@ public class PrintingDataEntity {
     private String errorMessage;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @OneToOne(optional = false)
     @JoinColumn(name = "INITIAL_CONTENT_ID", nullable = false)
     private PrintingFilesEntity initialContent;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "VALIDATED_CONTENT_ID")
     private PrintingFilesEntity validatedContent;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn(name = "FINAL_CONTENT_ID")
     private PrintingFilesEntity finalContent;
 
