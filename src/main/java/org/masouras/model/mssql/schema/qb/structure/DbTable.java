@@ -13,6 +13,7 @@ public enum DbTable implements BaseDbTable {
     ACTIVITIES("ActivityTable", null, List.of(DbField.REC_ID), true, false),
     PRINTING_SETUP("PrintingSetUpTable", null, List.of(DbField.ACTIVITY_TYPE, DbField.CONTENT_TYPE, DbField.SEQ_NO), false, false),
     LETTER_SETUP("LetterSetUpTable", null, List.of(DbField.LETTER_TYPE, DbField.SEQ_NO), false, false),
+    BATCH_STATISTICS_DETAILS("BatchStatisticsDetailsTable", null, List.of(DbField.REC_ID), true, false),
     ;
 
     private final ConfigDbTable configDbTable;
