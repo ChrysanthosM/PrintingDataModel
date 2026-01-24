@@ -35,7 +35,7 @@ public class ActivityEntity {
     private String userStamp;
 
     @NotNull
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss:SSSS")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSSS")
     @Column(name = "DATE_STAMP", nullable = false)
     private LocalDateTime dateStamp;
 

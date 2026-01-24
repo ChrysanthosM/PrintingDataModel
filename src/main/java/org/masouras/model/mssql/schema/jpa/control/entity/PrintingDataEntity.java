@@ -28,7 +28,7 @@ public class PrintingDataEntity {
     private PrintingStatus printingStatus;
 
     @NotNull
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss:SSSS")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSSS")
     @UpdateTimestamp
     @Column(name = "MODIFIED_AT", nullable = false)
     private LocalDateTime modifiedAt;
