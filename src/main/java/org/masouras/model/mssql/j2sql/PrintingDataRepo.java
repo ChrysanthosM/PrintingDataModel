@@ -7,5 +7,6 @@ public interface PrintingDataRepo extends RepoBaseMSSQL {
         INSERT,
         LIST_UNPROCESSED,
         UPDATE_SET_PROCESSED,
+        LIST_TO_PRINT,
     }
 }

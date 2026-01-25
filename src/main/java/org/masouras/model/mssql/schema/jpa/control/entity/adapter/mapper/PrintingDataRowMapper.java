@@ -41,6 +41,7 @@ public class PrintingDataRowMapper implements RowMapper<PrintingDataEntity> {
         if (!rs.wasNull()) {
             PrintingFilesEntity validatedPrintingFilesEntity = new PrintingFilesEntity();
             validatedPrintingFilesEntity.setId(validatedId);
+            validatedPrintingFilesEntity.setContentBinary(rs.getBytes(DbField.VALIDATED_CONTENT_BINARY.systemName()));
             entity.setValidatedContent(validatedPrintingFilesEntity);
         }
 
@@ -48,6 +49,7 @@ public class PrintingDataRowMapper implements RowMapper<PrintingDataEntity> {
         if (!rs.wasNull()) {
             PrintingFilesEntity finalPrintingFilesEntity = new PrintingFilesEntity();
             finalPrintingFilesEntity.setId(finalId);
+            finalPrintingFilesEntity.setContentBinary(rs.getBytes(DbField.FINAL_CONTENT_BINARY.systemName()));
             entity.setFinalContent(finalPrintingFilesEntity);
         }
 
