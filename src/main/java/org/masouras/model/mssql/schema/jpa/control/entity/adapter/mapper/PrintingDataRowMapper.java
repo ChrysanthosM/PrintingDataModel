@@ -34,7 +34,7 @@ public class PrintingDataRowMapper implements RowMapper<PrintingDataEntity> {
 
         PrintingFilesEntity initialPrintingFilesEntity = new PrintingFilesEntity();
         initialPrintingFilesEntity.setId(rs.getLong(DbField.INITIAL_CONTENT_ID.systemName()));
-        initialPrintingFilesEntity.setContentBase64(rs.getString(DbField.INITIAL_CONTENT_BASE64.systemName()));
+        initialPrintingFilesEntity.setContentBinary(rs.getBytes(DbField.INITIAL_CONTENT_BINARY.systemName()));
         entity.setInitialContent(initialPrintingFilesEntity);
 
         long validatedId = rs.getLong(DbField.VALIDATED_CONTENT_ID.systemName());

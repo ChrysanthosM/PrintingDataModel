@@ -32,7 +32,7 @@ public class PrintingDataJ2SQL extends AbstractJ2<PrintingDataRepo.NameOfSQL> im
     @LoadJ2SQL
     public void loadListUnprocessed() {
         addLoader(NameOfSQL.LIST_UNPROCESSED, J2SQL.create(getDataSourceType()).from(printingDataTable.as(PFX.T0)).selectAll()
-                .fullJoin(printingFilesTable.as(PFX.T1)).on(PFX.t0(printingDataTable.INITIAL_CONTENT_ID).eq(PFX.t1(printingFilesTable.REC_ID))).fromJoinSelectOnly(printingFilesTable.CONTENT_BASE64.as(DbField.INITIAL_CONTENT_BASE64.systemName()))
+                .fullJoin(printingFilesTable.as(PFX.T1)).on(PFX.t0(printingDataTable.INITIAL_CONTENT_ID).eq(PFX.t1(printingFilesTable.REC_ID))).fromJoinSelectOnly(printingFilesTable.CONTENT_BINARY.as(DbField.INITIAL_CONTENT_BINARY.systemName()))
                 .where(printingDataTable.PRINTING_STATUS.eq(PrintingStatus.INSERTED.getCode()))
                 .orderBy(printingDataTable.REC_ID));
     }

@@ -11,9 +11,9 @@ import org.masouras.model.mssql.schema.qb.structure.DbTable;
 public class PrintingFilesTable extends AbstractTable {
     private PrintingFilesTable() {
         super(DbTable.PRINTING_FILES);
-        setDbFs(REC_ID, CONTENT_BASE64);
+        setDbFs(REC_ID, CONTENT_BINARY);
     }
 
     public final PairOfTableField REC_ID = getPairOfTableField(DbField.REC_ID);
-    public final PairOfTableField CONTENT_BASE64 = getPairOfTableField(DbField.CONTENT_BASE64);
+    public final PairOfTableField CONTENT_BINARY = getPairOfTableField(DbField.CONTENT_BINARY);
 }
