@@ -50,7 +50,7 @@ public class PrintingDataJ2SQL extends AbstractJ2<PrintingDataRepo.NameOfSQL> im
     @LoadJ2SQL
     public void loadListToPrint() {
         addLoader(NameOfSQL.LIST_TO_PRINT, J2SQL.create(getDataSourceType()).from(printingDataTable.as(PFX.T0))
-                .select(PFX.to(printingDataTable.REC_ID, printingDataTable.FINAL_CONTENT_ID))
+                .select(PFX.t0(printingDataTable.REC_ID, printingDataTable.FINAL_CONTENT_ID))
                 .fullJoin(activityTable, PFX.T1).on(PFX.t0(printingDataTable.ACTIVITY_ID).eq(PFX.t1(activityTable.REC_ID))).fromJoinSelectOnly(PFX.t1(activityTable.ACTIVITY_TYPE))
                 .where(printingDataTable.PRINTING_STATUS.eq(PrintingStatus.PROCESSED.getCode()))
                 .orderBy(printingDataTable.REC_ID));
