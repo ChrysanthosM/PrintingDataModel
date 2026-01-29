@@ -5,8 +5,8 @@ import org.hibernate.query.NativeQuery;
 import org.masouras.model.mssql.j2sql.PrintingDataRepo;
 import org.masouras.model.mssql.j2sql.PrintingDataSQL;
 import org.masouras.model.mssql.schema.jpa.control.entity.PrintingDataEntity;
+import org.masouras.model.mssql.schema.jpa.control.entity.adapter.domain.ListToPrintDTO;
 import org.masouras.model.mssql.schema.jpa.control.entity.adapter.mapper.ListToPrintMapper;
-import org.masouras.model.mssql.schema.jpa.control.entity.adapter.projection.ListToPrintProjectionImplementor;
 import org.masouras.model.mssql.schema.jpa.control.repository.PrintingDataRepository;
 import org.masouras.model.mssql.schema.jpa.control.util.RepositoryUtils;
 import org.springframework.stereotype.Service;
@@ -29,12 +29,12 @@ public class PrintingDataService {
 
     @SuppressWarnings("unchecked")
     @Transactional(readOnly = true)
-    public List<ListToPrintProjectionImplementor> getListToPrintProjections() {
+    public List<ListToPrintDTO> getListToPrintDTOs() {
         List<Map<String, Object>> rows = (List<Map<String, Object>>) printingDataSQL
                 .getNativeQuery(PrintingDataRepo.NameOfSQL.LIST_TO_PRINT)
                 .unwrap(NativeQuery.class)
                 .setTupleTransformer(RepositoryUtils.tupleTransformer())
                 .getResultList();
-        return ListToPrintMapper.getListToPrintProjectionImplementors(rows);
+        return ListToPrintMapper.getListToPrintDTOs(rows);
     }
 }
