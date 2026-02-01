@@ -21,6 +21,10 @@ public class BatchStatisticsDetailsEntity {
     private Long id;
 
     @NotNull
+    @Column(name = "JOB_NAME", nullable = false, length = 50)
+    private String jobName;
+
+    @NotNull
     @Column(name = "JOB_EXECUTION_ID", nullable = false)
     private Long jobExecutionID;
 

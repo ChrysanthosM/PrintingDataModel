@@ -10,10 +10,11 @@ import org.masouras.model.mssql.schema.qb.structure.DbTable;
 public class BatchStatisticsDetailsTable extends AbstractTable {
     private BatchStatisticsDetailsTable() {
         super(DbTable.BATCH_STATISTICS_DETAILS);
-        setDbFs(REC_ID, JOB_EXECUTION_ID, STEP_NAME, EXIT_STATUS, START_TIME, END_TIME, DURATION_MS, READ_COUNT, WRITE_COUNT, COMMIT_COUNT, ROLLBACK_COUNT, SKIP_COUNT, READ_SKIP_COUNT, WRITE_SKIP_COUNT, FILTER_COUNT);
+        setDbFs(REC_ID, JOB_NAME, JOB_EXECUTION_ID, STEP_NAME, EXIT_STATUS, START_TIME, END_TIME, DURATION_MS, READ_COUNT, WRITE_COUNT, COMMIT_COUNT, ROLLBACK_COUNT, SKIP_COUNT, READ_SKIP_COUNT, WRITE_SKIP_COUNT, FILTER_COUNT);
     }
 
     public final PairOfTableField REC_ID = getPairOfTableField(DbField.REC_ID);
+    public final PairOfTableField JOB_NAME = getPairOfTableField(DbField.JOB_NAME);
     public final PairOfTableField JOB_EXECUTION_ID = getPairOfTableField(DbField.JOB_EXECUTION_ID);
     public final PairOfTableField STEP_NAME = getPairOfTableField(DbField.STEP_NAME);
     public final PairOfTableField EXIT_STATUS = getPairOfTableField(DbField.EXIT_STATUS);
