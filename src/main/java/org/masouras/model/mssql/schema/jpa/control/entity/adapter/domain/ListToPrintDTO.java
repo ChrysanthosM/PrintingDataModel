@@ -9,12 +9,11 @@ import org.masouras.model.mssql.schema.jpa.control.vaadin.FormField;
 @Data
 @AllArgsConstructor
 public class ListToPrintDTO {
-    @FormField(component = TextField.class, order = 1, label = "Record ID")
     private Long recId;
 
-    @FormField(component = TextField.class, order = 2, label = "Activity Type")
+    @FormField(component = TextField.class, order = 1, label = "Activity Type")
     private ActivityType activityType;
 
-    @FormField(component = TextField.class, order = 3, label = "Final Content ID")
+    @FormField(component = TextField.class, order = 2, label = "Final Content ID")
     private Long finalContentId;
 }
