@@ -1,4 +1,4 @@
-package org.masouras.model.mssql.j2sql;
+package org.masouras.model.mssql.j2sql.control;
 
 import org.masouras.base.annotation.J2SqlLoader;
 import org.masouras.base.annotation.LoadJ2SQL;
@@ -54,5 +54,12 @@ public class PrintingDataJ2SQL extends AbstractJ2<PrintingDataRepo.NameOfSQL> im
                 .fullJoin(activityTable, PFX.T1).on(PFX.t0(printingDataTable.ACTIVITY_ID).eq(PFX.t1(activityTable.REC_ID))).fromJoinSelectOnly(PFX.t1(activityTable.ACTIVITY_TYPE))
                 .where(printingDataTable.PRINTING_STATUS.eq(PrintingStatus.PROCESSED.getCode()))
                 .orderBy(printingDataTable.REC_ID));
+    }
+
+    @LoadJ2SQL
+    public void loadUpdateSetPrinted() {
+        addLoader(NameOfSQL.UPDATE_SET_PRINTED, J2SQL.create(getDataSourceType()).updateInto(printingDataTable)
+                .updateFieldSetValue(printingDataTable.PRINTING_STATUS, PrintingStatus.PRINTED.getCode())
+                .where(printingDataTable.REC_ID.in(":ids")));
     }
 }

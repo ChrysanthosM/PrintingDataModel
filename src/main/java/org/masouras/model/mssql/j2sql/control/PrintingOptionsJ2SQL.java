@@ -1,4 +1,4 @@
-package org.masouras.model.mssql.j2sql;
+package org.masouras.model.mssql.j2sql.control;
 
 import org.masouras.base.annotation.J2SqlLoader;
 import org.masouras.base.annotation.LoadJ2SQL;

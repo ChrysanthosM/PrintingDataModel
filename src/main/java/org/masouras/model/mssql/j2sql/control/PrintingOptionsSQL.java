@@ -1,4 +1,4 @@
-package org.masouras.model.mssql.j2sql;
+package org.masouras.model.mssql.j2sql.control;
 
 import org.masouras.base.annotation.J2SqlService;
 import org.masouras.base.repo.base.AbstractSQL;
