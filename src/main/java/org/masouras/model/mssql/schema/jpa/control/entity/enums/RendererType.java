@@ -9,9 +9,7 @@ import org.masouras.model.mssql.schema.qb.structure.DbFieldValues;
 @Getter
 public enum RendererType implements EnumTypeBase<RendererType> {
     FOP(DbFieldValues.ValuesForRendererType.FOP.getValue()),
-    OPEN_HTML_TO_PDF(DbFieldValues.ValuesForRendererType.OPEN_HTML_TO_PDF.getValue()),
     FLYING_SAUCER(DbFieldValues.ValuesForRendererType.FLYING_SAUCER.getValue()),
-    OPEN_PDF(DbFieldValues.ValuesForRendererType.OPEN_PDF.getValue()),
     ;
     private final String code;
 }
