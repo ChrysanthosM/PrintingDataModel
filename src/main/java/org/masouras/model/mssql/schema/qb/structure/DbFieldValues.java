@@ -17,7 +17,7 @@ public class DbFieldValues {
 
     @Getter @AllArgsConstructor
     public enum ValuesForContentType implements ValueForBase {
-        XML_POLICY("10001");
+        XML_POLICY("10001"), XML_BILLING("10002");
         private final DbField forDbField = DbField.CONTENT_TYPE;
         private final String value;
     }
@@ -38,7 +38,7 @@ public class DbFieldValues {
 
     @Getter @AllArgsConstructor
     public enum ValuesForXslType implements ValueForBase {
-        POLICY_XSL("10001");
+        POLICY_XSL("10001"), BILLING_XSL("10002");
         private final DbField forDbField = DbField.XSL_TYPE;
         private final String value;
     }

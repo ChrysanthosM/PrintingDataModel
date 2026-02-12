@@ -9,6 +9,7 @@ import org.masouras.model.mssql.schema.qb.structure.DbFieldValues;
 @Getter
 public enum ContentType implements EnumTypeBase<ContentType> {
     XML_POLICY(DbFieldValues.ValuesForContentType.XML_POLICY.getValue()),
+    XML_BILLING(DbFieldValues.ValuesForContentType.XML_BILLING.getValue()),
     ;
     private final String code;
 }

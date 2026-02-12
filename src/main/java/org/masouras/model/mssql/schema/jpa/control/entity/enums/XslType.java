@@ -10,6 +10,7 @@ import org.masouras.model.mssql.schema.qb.structure.DbFieldValues;
 @Getter
 public enum XslType implements EnumTypeBase<XslType> {
     POLICY_XSL(DbFieldValues.ValuesForXslType.POLICY_XSL.getValue()),
+    BILLING_XSL(DbFieldValues.ValuesForXslType.BILLING_XSL.getValue()),
     ;
     private final String code;
 }
