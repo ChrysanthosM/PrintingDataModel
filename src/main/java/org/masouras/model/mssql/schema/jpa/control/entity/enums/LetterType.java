@@ -9,6 +9,7 @@ import org.masouras.model.mssql.schema.qb.structure.DbFieldValues;
 @Getter
 public enum LetterType implements EnumTypeBase<LetterType> {
     POLICY(DbFieldValues.ValuesForLetterType.POLICY.getValue()),
+    BILLING(DbFieldValues.ValuesForLetterType.BILLING.getValue()),
     ;
     private final String code;
 }

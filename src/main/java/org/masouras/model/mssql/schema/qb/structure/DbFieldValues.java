@@ -31,7 +31,7 @@ public class DbFieldValues {
 
     @Getter @AllArgsConstructor
     public enum ValuesForLetterType implements ValueForBase {
-        POLICY("10001");
+        POLICY("10001"), BILLING("10002");
         private final DbField forDbField = DbField.LETTER_TYPE;
         private final String value;
     }
