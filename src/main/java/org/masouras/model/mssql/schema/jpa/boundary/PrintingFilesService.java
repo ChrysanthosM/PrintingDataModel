@@ -6,6 +6,8 @@ import org.masouras.model.mssql.schema.jpa.control.repository.PrintingFilesRepos
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class PrintingFilesService {
@@ -14,5 +16,10 @@ public class PrintingFilesService {
     @Transactional
     public PrintingFilesEntity save(PrintingFilesEntity entity) {
         return printingFilesRepository.save(entity);
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<PrintingFilesEntity> findById(Long id) {
+        return printingFilesRepository.findById(id);
     }
 }
