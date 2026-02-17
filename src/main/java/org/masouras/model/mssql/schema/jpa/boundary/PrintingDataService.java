@@ -3,7 +3,7 @@ package org.masouras.model.mssql.schema.jpa.boundary;
 import lombok.RequiredArgsConstructor;
 import org.masouras.model.mssql.j2sql.boundary.PrintingDataSQLRepository;
 import org.masouras.model.mssql.schema.jpa.control.entity.PrintingDataEntity;
-import org.masouras.model.mssql.schema.jpa.control.entity.adapter.domain.ListToPrintDTO;
+import org.masouras.model.mssql.schema.jpa.control.entity.adapter.domain.LetterToPrintDTO;
 import org.masouras.model.mssql.schema.jpa.control.repository.PrintingDataRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,7 +22,7 @@ public class PrintingDataService {
     }
 
     @Transactional(readOnly = true)
-    public List<ListToPrintDTO> getListToPrintDTOs() {
+    public List<LetterToPrintDTO> getListToPrintDTOs() {
         return printingDataSQLRepository.getListToPrintDTOs();
     }
 

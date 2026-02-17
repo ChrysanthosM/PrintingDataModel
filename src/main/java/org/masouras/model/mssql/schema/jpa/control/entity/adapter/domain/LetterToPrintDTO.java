@@ -8,7 +8,7 @@ import org.masouras.model.mssql.schema.jpa.control.vaadin.FormField;
 
 @Data
 @AllArgsConstructor
-public class ListToPrintDTO {
+public class LetterToPrintDTO {
     private Long recId;
 
     @FormField(component = TextField.class, order = 1, label = "Activity Type")

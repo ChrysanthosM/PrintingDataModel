@@ -5,7 +5,7 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.hibernate.query.NativeQuery;
 import org.masouras.model.mssql.j2sql.control.PrintingDataRepo;
 import org.masouras.model.mssql.j2sql.control.PrintingDataSQL;
-import org.masouras.model.mssql.schema.jpa.control.entity.adapter.domain.ListToPrintDTO;
+import org.masouras.model.mssql.schema.jpa.control.entity.adapter.domain.LetterToPrintDTO;
 import org.masouras.model.mssql.schema.jpa.control.entity.adapter.mapper.ListToPrintMapper;
 import org.masouras.model.mssql.schema.jpa.control.util.RepositoryUtils;
 import org.springframework.stereotype.Repository;
@@ -19,7 +19,7 @@ public class PrintingDataSQLRepository {
     private final PrintingDataSQL printingDataSQL;
 
     @SuppressWarnings("unchecked")
-    public List<ListToPrintDTO> getListToPrintDTOs() {
+    public List<LetterToPrintDTO> getListToPrintDTOs() {
         List<Map<String, Object>> rows = (List<Map<String, Object>>) printingDataSQL
                 .getNativeQuery(PrintingDataRepo.NameOfSQL.LIST_TO_PRINT)
                 .unwrap(NativeQuery.class)
