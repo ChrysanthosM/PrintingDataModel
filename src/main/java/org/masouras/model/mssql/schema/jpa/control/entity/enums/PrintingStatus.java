@@ -11,6 +11,8 @@ public enum PrintingStatus implements EnumTypeBase<PrintingStatus> {
     INSERTED(DbFieldValues.ValuesForPrintingStatus.INSERTED.getValue()),
     VALIDATED(DbFieldValues.ValuesForPrintingStatus.VALIDATED.getValue()),
     PROCESSED(DbFieldValues.ValuesForPrintingStatus.PROCESSED.getValue()),
+    FOR_PRINTING(DbFieldValues.ValuesForPrintingStatus.FOR_PRINTING.getValue()),
+    PRINTING_NOW(DbFieldValues.ValuesForPrintingStatus.PRINTING_NOW.getValue()),
     PRINTED(DbFieldValues.ValuesForPrintingStatus.PRINTED.getValue()),
     DUMMY(DbFieldValues.ValuesForPrintingStatus.DUMMY.getValue()),
     ERROR(DbFieldValues.ValuesForPrintingStatus.ERROR.getValue()),

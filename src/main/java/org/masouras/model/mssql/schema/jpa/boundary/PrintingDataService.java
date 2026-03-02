@@ -4,11 +4,13 @@ import lombok.RequiredArgsConstructor;
 import org.masouras.model.mssql.j2sql.boundary.PrintingDataSQLRepository;
 import org.masouras.model.mssql.schema.jpa.control.entity.PrintingDataEntity;
 import org.masouras.model.mssql.schema.jpa.control.entity.adapter.domain.LetterToPrintDTO;
+import org.masouras.model.mssql.schema.jpa.control.entity.enums.PrintingStatus;
 import org.masouras.model.mssql.schema.jpa.control.repository.PrintingDataRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -27,7 +29,7 @@ public class PrintingDataService {
     }
 
     @Transactional
-    public int updateSetPrinted(List<Long> ids) {
-        return printingDataSQLRepository.updateSetPrinted(ids);
+    public int updateSetPrintingStatus(Set<Long> ids, PrintingStatus printingStatus) {
+        return printingDataSQLRepository.updateSetPrintingStatus(ids, printingStatus);
     }
 }

@@ -7,11 +7,13 @@ import org.masouras.model.mssql.j2sql.control.PrintingDataRepo;
 import org.masouras.model.mssql.j2sql.control.PrintingDataSQL;
 import org.masouras.model.mssql.schema.jpa.control.entity.adapter.domain.LetterToPrintDTO;
 import org.masouras.model.mssql.schema.jpa.control.entity.adapter.mapper.ListToPrintMapper;
+import org.masouras.model.mssql.schema.jpa.control.entity.enums.PrintingStatus;
 import org.masouras.model.mssql.schema.jpa.control.util.RepositoryUtils;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Repository
 @RequiredArgsConstructor
@@ -28,11 +30,13 @@ public class PrintingDataSQLRepository {
         return ListToPrintMapper.getListToPrintDTOs(rows);
     }
 
-    public int updateSetPrinted(List<Long> ids) {
+    public int updateSetPrintingStatus(Set<Long> ids, PrintingStatus printingStatus) {
         if (CollectionUtils.isEmpty(ids)) return 0;
         return printingDataSQL
-                .getNativeQuery(PrintingDataRepo.NameOfSQL.UPDATE_SET_PRINTED)
-                .setParameter("ids", ids)
+                .getNativeQuery(PrintingDataRepo.NameOfSQL.UPDATE_SET_PRINTING_STATUS)
+                .setParameter(1, printingStatus.getCode())
+                .setParameter(2, ids)
                 .executeUpdate();
     }
+
 }

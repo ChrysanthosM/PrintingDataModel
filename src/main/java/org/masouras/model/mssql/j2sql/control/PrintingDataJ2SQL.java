@@ -57,9 +57,9 @@ public class PrintingDataJ2SQL extends AbstractJ2<PrintingDataRepo.NameOfSQL> im
     }
 
     @LoadJ2SQL
-    public void loadUpdateSetPrinted() {
-        addLoader(NameOfSQL.UPDATE_SET_PRINTED, J2SQL.create(getDataSourceType()).updateInto(printingDataTable)
-                .updateFieldSetValue(printingDataTable.PRINTING_STATUS, PrintingStatus.PRINTED.getCode())
-                .where(printingDataTable.REC_ID.in(":ids")));
+    public void loadUpdateSetPrintingStatus() {
+        addLoader(NameOfSQL.UPDATE_SET_PRINTING_STATUS, J2SQL.create(getDataSourceType()).updateInto(printingDataTable)
+                .updateFieldSetValue(printingDataTable.PRINTING_STATUS, "?")
+                .where(printingDataTable.REC_ID.in("?")));
     }
 }
