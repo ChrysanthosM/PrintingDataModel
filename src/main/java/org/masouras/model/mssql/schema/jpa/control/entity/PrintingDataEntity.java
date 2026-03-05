@@ -3,9 +3,7 @@ package org.masouras.model.mssql.schema.jpa.control.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.masouras.model.mssql.schema.jpa.control.entity.enums.*;
 
@@ -13,13 +11,15 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "PrintingDataTable")
-@Data
-@EqualsAndHashCode(exclude = "activity")
+@Getter @Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@ToString(exclude = {"activity", "initialContent", "validatedContent", "finalContent"})
 @NoArgsConstructor
 public class PrintingDataEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "REC_ID")
+    @EqualsAndHashCode.Include
     private Long id;
 
     @NotNull

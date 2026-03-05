@@ -4,20 +4,20 @@ import com.vaadin.flow.component.combobox.ComboBox;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
 import org.masouras.model.mssql.schema.jpa.control.entity.enums.*;
 import org.masouras.model.mssql.schema.jpa.control.vaadin.FormField;
 
 @Entity
 @Table(name = "LetterSetUpTable")
-@Data
+@Getter @Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 public class LetterSetUpEntity {
     @EmbeddedId
     @Valid
     @NotNull
+    @EqualsAndHashCode.Include
     private LetterSetUpKey id;
 
     @NotNull

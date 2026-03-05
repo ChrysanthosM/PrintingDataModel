@@ -3,9 +3,7 @@ package org.masouras.model.mssql.schema.jpa.control.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
 import org.masouras.model.mssql.schema.jpa.control.entity.enums.ActivityType;
 import org.masouras.model.mssql.schema.jpa.control.entity.enums.ActivityTypeConverter;
 
@@ -13,12 +11,14 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "ActivityTable")
-@Data
+@Getter @Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 public class ActivityEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "REC_ID")
+    @EqualsAndHashCode.Include
     private Long id;
 
     @NotNull

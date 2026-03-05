@@ -9,8 +9,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "BatchStatisticsDetailsTable")
-@Data
-@ToString
+@Getter @Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,6 +18,7 @@ public class BatchStatisticsDetailsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "REC_ID")
+    @EqualsAndHashCode.Include
     private Long id;
 
     @NotNull

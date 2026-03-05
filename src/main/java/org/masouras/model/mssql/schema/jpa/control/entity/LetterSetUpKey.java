@@ -8,9 +8,7 @@ import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.masouras.model.mssql.schema.jpa.control.entity.enums.LetterType;
 import org.masouras.model.mssql.schema.jpa.control.entity.enums.LetterTypeConverter;
 import org.masouras.model.mssql.schema.jpa.control.vaadin.FormField;
@@ -18,7 +16,8 @@ import org.masouras.model.mssql.schema.jpa.control.vaadin.FormField;
 import java.io.Serializable;
 
 @Embeddable
-@Data
+@Getter @Setter
+@EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 public class LetterSetUpKey implements Serializable {

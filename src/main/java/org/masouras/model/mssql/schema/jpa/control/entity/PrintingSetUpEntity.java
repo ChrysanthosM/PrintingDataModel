@@ -4,20 +4,21 @@ import com.vaadin.flow.component.combobox.ComboBox;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.masouras.model.mssql.schema.jpa.control.entity.enums.LetterType;
 import org.masouras.model.mssql.schema.jpa.control.entity.enums.LetterTypeConverter;
 import org.masouras.model.mssql.schema.jpa.control.vaadin.FormField;
 
 @Entity
 @Table(name = "PrintingSetUpTable")
-@Data
+@Getter @Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 public class PrintingSetUpEntity {
     @EmbeddedId
     @Valid
     @NotNull
+    @EqualsAndHashCode.Include
     private PrintingSetUpKey id;
 
     @NotNull

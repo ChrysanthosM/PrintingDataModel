@@ -4,20 +4,21 @@ import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.textfield.TextField;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.masouras.model.mssql.schema.jpa.control.entity.enums.PrintingOptionType;
 import org.masouras.model.mssql.schema.jpa.control.entity.enums.PrintingOptionTypeConverter;
 import org.masouras.model.mssql.schema.jpa.control.vaadin.FormField;
 
 @Entity
 @Table(name = "PrintingOptionsTable")
-@Data
+@Getter @Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 public class PrintingOptionsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "REC_ID")
+    @EqualsAndHashCode.Include
     private Long id;
 
     @NotNull

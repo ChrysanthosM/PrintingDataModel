@@ -2,17 +2,18 @@ package org.masouras.model.mssql.schema.jpa.control.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name = "PrintingFilesTable")
-@Data
+@Getter @Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @NoArgsConstructor
 public class PrintingFilesEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "REC_ID")
+    @EqualsAndHashCode.Include
     private Long id;
 
     @NotNull
