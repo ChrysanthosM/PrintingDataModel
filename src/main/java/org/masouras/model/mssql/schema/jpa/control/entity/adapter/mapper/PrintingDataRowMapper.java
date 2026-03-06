@@ -6,6 +6,7 @@ import org.masouras.model.mssql.schema.jpa.control.entity.PrintingFilesEntity;
 import org.masouras.model.mssql.schema.jpa.control.entity.enums.ContentType;
 import org.masouras.model.mssql.schema.jpa.control.entity.enums.FileExtensionType;
 import org.masouras.model.mssql.schema.jpa.control.entity.enums.PrintingStatus;
+import org.masouras.model.mssql.schema.jpa.control.entity.enums.PrintingWayType;
 import org.masouras.model.mssql.schema.jpa.control.util.EnumUtil;
 import org.masouras.model.mssql.schema.qb.structure.DbField;
 import org.springframework.jdbc.core.RowMapper;
@@ -22,6 +23,7 @@ public class PrintingDataRowMapper implements RowMapper<PrintingDataEntity> {
 
         entity.setId(rs.getLong(DbField.REC_ID.systemName()));
         entity.setPrintingStatus(Objects.requireNonNull(EnumUtil.fromCode(PrintingStatus.class, rs.getString(DbField.PRINTING_STATUS.systemName()))));
+        entity.setPrintingWayType(Objects.requireNonNull(EnumUtil.fromCode(PrintingWayType.class, rs.getString(DbField.PRINTING_WAY_TYPE.systemName()))));
         entity.setModifiedAt(rs.getTimestamp(DbField.MODIFIED_AT.systemName()).toLocalDateTime());
 
         ActivityEntity activity = new ActivityEntity();

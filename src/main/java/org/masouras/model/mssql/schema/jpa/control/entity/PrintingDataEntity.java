@@ -28,6 +28,11 @@ public class PrintingDataEntity {
     private PrintingStatus printingStatus;
 
     @NotNull
+    @Column(name = "PRINTING_WAY_TYPE", nullable = false, length = 3)
+    @Convert(converter = PrintingWayTypeConverter.class)
+    private PrintingWayType printingWayType;
+
+    @NotNull
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSSS")
     @UpdateTimestamp
     @Column(name = "MODIFIED_AT", nullable = false)
@@ -65,8 +70,10 @@ public class PrintingDataEntity {
     @JoinColumn(name = "FINAL_CONTENT_ID")
     private PrintingFilesEntity finalContent;
 
-    public PrintingDataEntity(ActivityEntity activityEntity, ContentType contentType, FileExtensionType fileExtensionType, PrintingFilesEntity printingFilesEntity) {
+    public PrintingDataEntity(ActivityEntity activityEntity, PrintingWayType printingWayType,
+                              ContentType contentType, FileExtensionType fileExtensionType, PrintingFilesEntity printingFilesEntity) {
         this.activity = activityEntity;
+        this.printingWayType = printingWayType;
         this.contentType = contentType;
         this.fileExtensionType = fileExtensionType;
         this.initialContent = printingFilesEntity;

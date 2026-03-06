@@ -11,12 +11,16 @@ import org.masouras.model.mssql.schema.qb.structure.DbTable;
 public class PrintingDataTable extends AbstractTable {
     private PrintingDataTable() {
         super(DbTable.PRINTING_DATA);
-        setDbFs(REC_ID, PRINTING_STATUS, MODIFIED_AT, ACTIVITY_ID, CONTENT_TYPE, EXTENSION_TYPE, ERROR_MESSAGE,
+        setDbFs(REC_ID, PRINTING_STATUS, PRINTING_WAY_TYPE,
+                MODIFIED_AT, ACTIVITY_ID,
+                CONTENT_TYPE, EXTENSION_TYPE,
+                ERROR_MESSAGE,
                 INITIAL_CONTENT_ID, VALIDATED_CONTENT_ID, FINAL_CONTENT_ID);
     }
 
     public final PairOfTableField REC_ID = getPairOfTableField(DbField.REC_ID);
     public final PairOfTableField PRINTING_STATUS = getPairOfTableField(DbField.PRINTING_STATUS);
+    public final PairOfTableField PRINTING_WAY_TYPE = getPairOfTableField(DbField.PRINTING_WAY_TYPE);
     public final PairOfTableField MODIFIED_AT = getPairOfTableField(DbField.MODIFIED_AT);
     public final PairOfTableField ACTIVITY_ID = getPairOfTableField(DbField.ACTIVITY_ID);
     public final PairOfTableField CONTENT_TYPE = getPairOfTableField(DbField.CONTENT_TYPE);

@@ -53,6 +53,13 @@ public class DbFieldValues {
     }
 
     @Getter @AllArgsConstructor
+    public enum ValuesForPrintingWayType implements ValueForBase {
+        BATCH("001"), RABBIT("002");
+        private final DbField forDbField = DbField.PRINTING_WAY_TYPE;
+        private final String value;
+    }
+
+    @Getter @AllArgsConstructor
     public enum ValuesForRendererType implements ValueForBase {
         FOP("001"), FLYING_SAUCER("002");
         private final DbField forDbField = DbField.RENDERER_TYPE;
