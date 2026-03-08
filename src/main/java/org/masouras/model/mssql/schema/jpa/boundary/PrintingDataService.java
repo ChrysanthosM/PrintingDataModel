@@ -24,6 +24,11 @@ public class PrintingDataService {
     }
 
     @Transactional(readOnly = true)
+    public PrintingDataEntity findById(Long id) {
+        return printingDataRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("PrintingDataEntity not found with id: " + id));
+    }
+
+    @Transactional(readOnly = true)
     public List<LetterToPrintDTO> getListToPrintDTOs() {
         return printingDataSQLRepository.getListToPrintDTOs();
     }
