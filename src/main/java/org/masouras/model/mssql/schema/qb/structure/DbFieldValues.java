@@ -54,7 +54,7 @@ public class DbFieldValues {
 
     @Getter @AllArgsConstructor
     public enum ValuesForPrintingWayType implements ValueForBase {
-        BATCH("001"), RABBIT("002");
+        BATCH("001"), ARTEMIS("002");
         private final DbField forDbField = DbField.PRINTING_WAY_TYPE;
         private final String value;
     }

@@ -9,7 +9,7 @@ import org.masouras.model.mssql.schema.qb.structure.DbFieldValues;
 @Getter
 public enum PrintingWayType implements EnumTypeBase<PrintingWayType> {
     BATCH(DbFieldValues.ValuesForPrintingWayType.BATCH.getValue()),
-    RABBIT(DbFieldValues.ValuesForPrintingWayType.RABBIT.getValue()),
+    ARTEMIS(DbFieldValues.ValuesForPrintingWayType.ARTEMIS.getValue()),
     ;
     private final String code;
 }
