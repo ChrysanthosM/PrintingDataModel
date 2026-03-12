@@ -46,7 +46,7 @@ public class DbFieldValues {
     @Getter @AllArgsConstructor
     public enum ValuesForPrintingStatus implements ValueForBase {
         INSERTED("0"), VALIDATED("1"), PROCESSED("2"),
-        FOR_PRINTING("3"), PRINTING_NOW("4"), PRINTED("5"),
+        PREPARE_FOR_PRINTING("3"), PRINTING_NOW("4"), PRINTED("5"),
         DUMMY("8"), ERROR("9");
         private final DbField forDbField = DbField.PRINTING_STATUS;
         private final String value;

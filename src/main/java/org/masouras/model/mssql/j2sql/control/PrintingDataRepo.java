@@ -5,7 +5,7 @@ import org.masouras.base.repo.datasource.RepoBaseMSSQL;
 public interface PrintingDataRepo extends RepoBaseMSSQL {
     enum NameOfSQL {
         INSERT,
-        LIST_UNPROCESSED,
+        LIST_UNPROCESSED_BATCH,
         UPDATE_SET_PROCESSED,
         LIST_TO_PRINT,
         UPDATE_SET_PRINTING_STATUS,
