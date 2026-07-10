@@ -1,0 +1,15 @@
+package org.masouras.model.maria.schema.jpa.control.entity.enums;
+
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import org.masouras.model.maria.schema.jpa.control.entity.enums.base.EnumTypeBase;
+import org.masouras.model.maria.schema.qb.structure.DbFieldValues;
+
+@RequiredArgsConstructor
+@Getter
+public enum PrintingOptionType implements EnumTypeBase<PrintingOptionType> {
+    SYS_PARAM(DbFieldValues.ValuesForOptionType.SYS_PARAM.getValue()),
+    FORM_SETTING(DbFieldValues.ValuesForOptionType.FORM_SETTING.getValue()),
+    ;
+    private final String code;
+}

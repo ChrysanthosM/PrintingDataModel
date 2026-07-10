@@ -1,0 +1,105 @@
+package org.masouras.model.maria.schema.qb.structure;
+
+import lombok.Getter;
+import org.apache.commons.lang3.StringUtils;
+import org.masouras.base.builder.BaseDbField;
+import org.masouras.base.builder.ConfigDbField;
+import org.masouras.base.builder.DbFieldDataType;
+
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
+import static org.masouras.base.builder.DbFieldDataType.*;
+
+@Getter
+public enum DbField implements BaseDbField {
+    REC_ID("REC_ID", DATATYPE_INTEGER),
+    SEQ_NO("SEQ_NO", DATATYPE_INTEGER),
+    VALID_FLAG("VALID_FLAG", DATATYPE_TEXT),
+    VALID_FLAG_1("VALID_FLAG_1", DATATYPE_TEXT),
+    VALID_FLAG_2("VALID_FLAG_2", DATATYPE_TEXT),
+    MODIFIED_AT("MODIFIED_AT", DATATYPE_TEXT),
+
+    ACTIVITY_ID("ACTIVITY_ID", DATATYPE_INTEGER),
+    ACTIVITY_TYPE("ACTIVITY_TYPE", DATATYPE_TEXT),
+    USER_STAMP("USER_STAMP", DATATYPE_TEXT),
+    DATE_STAMP("DATE_STAMP", DATATYPE_TEXT),
+    PGM_STAMP("PGM_STAMP", DATATYPE_TEXT),
+
+    OPTION_TYPE("OPTION_TYPE", DATATYPE_TEXT),
+    OPTION_NAME("OPTION_NAME", DATATYPE_TEXT),
+    OPTION_VALUE("OPTION_VALUE", DATATYPE_TEXT),
+    OPTION_DETAILS("OPTION_DETAILS", DATATYPE_TEXT),
+
+    PRINTING_STATUS("PRINTING_STATUS", DATATYPE_TEXT),
+    PRINTING_WAY_TYPE("PRINTING_WAY_TYPE", DATATYPE_TEXT),
+    CONTENT_TYPE("CONTENT_TYPE", DATATYPE_TEXT),
+    EXTENSION_TYPE("EXTENSION_TYPE", DATATYPE_TEXT),
+    ERROR_MESSAGE("ERROR_MESSAGE", DATATYPE_TEXT),
+
+    INITIAL_CONTENT_ID("INITIAL_CONTENT_ID", DATATYPE_INTEGER),
+    VALIDATED_CONTENT_ID("VALIDATED_CONTENT_ID", DATATYPE_INTEGER),
+    FINAL_CONTENT_ID("FINAL_CONTENT_ID", DATATYPE_INTEGER),
+
+    CONTENT_BINARY("CONTENT_BINARY", DATATYPE_BINARY),
+    INITIAL_CONTENT_BINARY("INITIAL_CONTENT_BINARY", DATATYPE_BINARY),
+    VALIDATED_CONTENT_BINARY("VALIDATED_CONTENT_BINARY", DATATYPE_BINARY),
+    FINAL_CONTENT_BINARY("FINAL_CONTENT_BINARY", DATATYPE_BINARY),
+
+    LETTER_TYPE("LETTER_TYPE", DATATYPE_TEXT),
+    XSL_TYPE("XSL_TYPE", DATATYPE_TEXT),
+    RENDERER_TYPE("RENDERER_TYPE", DATATYPE_TEXT),
+
+    JOB_NAME("JOB_NAME", DATATYPE_TEXT),
+    JOB_EXECUTION_ID("JOB_EXECUTION_ID", DATATYPE_INTEGER),
+    STEP_NAME("STEP_NAME", DATATYPE_TEXT),
+    EXIT_STATUS("EXIT_STATUS", DATATYPE_TEXT),
+    START_TIME("START_TIME", DATATYPE_TEXT),
+    END_TIME("END_TIME", DATATYPE_TEXT),
+    DURATION_MS("DURATION_MS", DATATYPE_INTEGER),
+    READ_COUNT("READ_COUNT", DATATYPE_INTEGER),
+    WRITE_COUNT("WRITE_COUNT", DATATYPE_INTEGER),
+    COMMIT_COUNT("COMMIT_COUNT", DATATYPE_INTEGER),
+    ROLLBACK_COUNT("ROLLBACK_COUNT", DATATYPE_INTEGER),
+    SKIP_COUNT("SKIP_COUNT", DATATYPE_INTEGER),
+    READ_SKIP_COUNT("READ_SKIP_COUNT", DATATYPE_INTEGER),
+    WRITE_SKIP_COUNT("WRITE_SKIP_COUNT", DATATYPE_INTEGER),
+    FILTER_COUNT("FILTER_COUNT", DATATYPE_INTEGER),
+    ;
+
+    private final ConfigDbField configDbField;
+
+    DbField(String systemName) {
+        this.configDbField = new ConfigDbField(systemName, null, null);
+    }
+    DbField(String systemName, DbFieldDataType fieldDataType) {
+        this.configDbField = new ConfigDbField(
+                systemName,
+                fieldDataType,
+                Arrays.stream(systemName.toLowerCase().split("_")).map(StringUtils::capitalize).collect(Collectors.joining(StringUtils.SPACE)));
+    }
+    DbField(String systemName, DbFieldDataType fieldDataType, String asAlias) {
+        this.configDbField = new ConfigDbField(
+                systemName,
+                fieldDataType,
+                asAlias);
+    }
+
+    @Override
+    public String systemName() {
+        return this.configDbField.systemName();
+    }
+    @Override
+    public DbFieldDataType fieldDataType() {
+        return this.configDbField.fieldDataType();
+    }
+    @Override
+    public String asAlias() {
+        return this.configDbField.asAlias();
+    }
+
+    @Override
+    public Boolean getInQuotesRequirement() {
+        return this.configDbField.fieldDataType().getInQuotesRequirement();
+    }
+}

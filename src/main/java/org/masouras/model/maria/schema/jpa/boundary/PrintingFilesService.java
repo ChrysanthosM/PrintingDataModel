@@ -1,0 +1,31 @@
+package org.masouras.model.maria.schema.jpa.boundary;
+
+import lombok.RequiredArgsConstructor;
+import org.masouras.model.maria.schema.jpa.control.entity.PrintingFilesEntity;
+import org.masouras.model.maria.schema.jpa.control.repository.PrintingFilesRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+@RequiredArgsConstructor
+public class PrintingFilesService {
+    private final PrintingFilesRepository printingFilesRepository;
+
+    @Transactional
+    public PrintingFilesEntity save(PrintingFilesEntity entity) {
+        return printingFilesRepository.save(entity);
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<PrintingFilesEntity> findById(Long id) {
+        return printingFilesRepository.findById(id);
+    }
+
+    @Transactional(readOnly = true)
+    public List<PrintingFilesEntity> findByAllByIds(List<Long> ids) {
+        return printingFilesRepository.findAllById(ids);
+    }
+}

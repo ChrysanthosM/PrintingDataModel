@@ -1,0 +1,8 @@
+package org.masouras.model.maria.schema.jpa.control.repository;
+
+import org.masouras.model.maria.schema.jpa.control.entity.PrintingOptionsEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+
+public interface PrintingOptionsRepository extends JpaRepository<PrintingOptionsEntity, Long>, JpaSpecificationExecutor<PrintingOptionsEntity> {
+}

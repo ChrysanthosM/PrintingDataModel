@@ -1,0 +1,24 @@
+package org.masouras.model.maria.schema.jpa.control.entity.enums.base;
+
+import jakarta.persistence.AttributeConverter;
+import jakarta.persistence.Converter;
+import org.masouras.model.maria.schema.jpa.control.util.EnumUtil;
+
+@Converter
+public abstract class EnumGenericConverter<T extends Enum<T> & EnumTypeBase<T>> implements AttributeConverter<T, String> {
+    private final Class<T> enumClass;
+
+    protected EnumGenericConverter(Class<T> enumClass) {
+        this.enumClass = enumClass;
+    }
+
+    @Override
+    public String convertToDatabaseColumn(T attribute) {
+        return attribute != null ? attribute.getCode() : null;
+    }
+
+    @Override
+    public T convertToEntityAttribute(String dbData) {
+        return EnumUtil.fromCode(enumClass, dbData);
+    }
+}

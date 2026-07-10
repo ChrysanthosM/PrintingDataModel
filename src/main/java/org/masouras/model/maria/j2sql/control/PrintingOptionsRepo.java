@@ -1,0 +1,9 @@
+package org.masouras.model.maria.j2sql.control;
+
+import org.masouras.base.repo.datasource.RepoBaseMSSQL;
+
+public interface PrintingOptionsRepo extends RepoBaseMSSQL {
+    enum NameOfSQL {
+        LIST_PRINTING_SETUP,
+    }
+}
